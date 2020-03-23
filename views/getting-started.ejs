@@ -1,0 +1,77 @@
+<html>
+<title><%=title%></title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter:700&display=swap" rel="stylesheet">
+    <link href="/stylesheets/auth.css" rel="stylesheet">
+
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+
+<% include Template/header.ejs %>
+<br><br><br><br>
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+    </div>
+    <form id="businessGettingStarted" method="get" action="/launch-your-business">
+        <input type="text" name="emailbusiness" value='<%=email%>' hidden/>
+        <input type="text" name="namebusiness" value='<%=bName%>' hidden/>
+        <h3 class="w3-xxlarge greetHeadline w3-hide-small"><font color="black">Connecting <b><%=bName%></b> on bybrisk.com</font></h3>
+        <h3 class="w3-xlarge w3-hide-large w3-hide-medium greetHeadline"><font color="black">Connecting <b><%=bName%></b> on bybrisk.com</font></h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label><font size="2">Select Business Type</font> </label>
+                    <select name="bType" class="form-control" form="businessGettingStarted">
+                        <option value="Want bybrisk as a logistic service">Want bybrisk as a logistic service</option>
+                        <option value="Want your business to be used as inventry">Want your business to be used as inventry</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label><font size="2">Select Business Category</font> </label>
+                    <select name="bCat" class="form-control" form="businessGettingStarted">
+                        <option value="Food / Restaurant">Food / Restaurant</option>
+                        <option value="Bakeries / Cakes">Bakeries / Cakes</option>
+                        <option value="Health / Pharmacy">Health / Pharmacy</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Flower Shop">Flower Shop</option>
+                        <option value="Gifts">Gifts</option>
+                        <option value="Documents">Documents</option>
+                        <option value="Apparels">Apparels</option>
+                        <option value="Services">Services</option>
+                        <option value="Others / Please specify">Others / Please specify</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label><font size="2">Select City</font> </label>
+                    <select name="bCity" class="form-control" form="businessGettingStarted">
+                        <option value="Bhopal">Bhopal</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Continue" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
