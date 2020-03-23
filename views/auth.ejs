@@ -15,7 +15,7 @@
             background: #fff;
             margin-top: 10%;
             margin-bottom: 5%;
-            width: 70%;
+            width: 90%;
         }
         .contact-form .form-control{
             border-radius:1rem;
@@ -26,15 +26,16 @@
         .contact-image img{
             border-radius: 6rem;
             width: 11%;
-            margin-top: -3%;
+            margin-top: -5%;
+            margin-bottom: 5%;
             transform: rotate(29deg);
         }
         .contact-form form{
-            padding: 14%;
+            padding: 5%;
         }
-        .contact-form form .row{
+        /**.contact-form form .row{
             margin-bottom: -7%;
-        }
+        }**/
         .contact-form h3{
             margin-bottom: 8%;
             margin-top: -10%;
@@ -42,11 +43,11 @@
             color: #0062cc;
         }
         .contact-form .btnContact {
-            width: 50%;
+            width: 80%;
             border: none;
             border-radius: 1rem;
             padding: 1.5%;
-            background: #dc3545;
+            background: mediumseagreen;
             font-weight: 600;
             color: #fff;
             cursor: pointer;
@@ -64,6 +65,11 @@
 .greetHeadline{
     font-family: 'Bitter', serif;
 }
+        @media only screen and (max-width: 600px) {
+            .contact-form {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <!------ Include the above in your HEAD tag ---------->
@@ -78,27 +84,49 @@
     <form method="post">
         <h3 class="w3-xxlarge greetHeadline w3-hide-small"><font color="black">Become our <%=auth%></font></h3>
         <h3 class="w3-xlarge w3-hide-large w3-hide-medium greetHeadline"><font color="black">Become our <%=auth%></font></h3>
-        <div class="row">
-            <div class="col-md-6">
+           <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                    <input type="text" name="email" class="form-control" placeholder="Email *" value="" />
                 </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="text" name="fName" class="form-control" placeholder="First name *" value="" />
                 </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                    <input type="text" name="lName" class="form-control" placeholder="Last name *" value="" />
                 </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="number" name="phoneNum" class="form-control" placeholder="Phone number *" value="" />
+                </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" name="bName" class="form-control" placeholder="Name of the business *" value="" />
+                    <label><font size="2">This could be the name of your store.</font></label>
+                </div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
                     <input type="submit" name="btnSubmit" class="btnContact" value="Continue" />
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
-                </div>
-            </div>
-        </div>
+           </div>
     </form>
 </div>
 </body>
