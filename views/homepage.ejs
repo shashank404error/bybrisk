@@ -4,16 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <style>
+        #lappyImg {
+            display: block;
+        }
+        #mobImg{
+            display: none;
+        }
+        @media only screen and (max-width: 600px) {
+            #lappyImg {
+                display: none;
+            }
+            #mobImg{
+                display: block;
+            }
+        }
+    </style>
+</head>
 <body>
 
-<% include Template/header.ejs %>
+<% include Template/homepageHeader.ejs %>
 
 <div class="w3-display-container" style="margin-bottom:50px">
-    <img src="/images/demo-hoarding.jpg" style="width:100%; height:300px;">
+    <img id="lappyImg" src="/images/im3.jpg" style="width:100%; height:300px;opacity:0.7;">
+    <img id="mobImg" src="/images/im2.jpg" style="width:100%; height:300px;opacity:0.7;">
     <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange"
          style="bottom:10%;opacity:0.7;width:70%">
         <h2><b><%=bName%>, <%=bCityName%></b></h2>
     </div>
+</div>
+
+<!------------------------------------add product component------------------------------------->
+<div class="row" id="recipieUpload">
+    <div class="col-12"><center>
+                <form method="POST" action="/itemUpload">
+                    <input type="text" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <h4>  <b>Add item to store</b>
+                    <input type="submit" value="+" class="w3-button w3-xlarge w3-circle w3-black"></h4>
+                </form></center></div>
 </div>
 
 <div class="w3-row w3-container" style="margin:50px 0">

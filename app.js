@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
-var LYBRouter = require('./routes/Launch-your-business');
+var homepageRouter = require('./routes/homepage');
 var fileupload = require('express-fileupload');
 var app = express();
 
@@ -28,7 +28,10 @@ app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.post('/getting-started',authRouter);
 app.get('/launch-your-business',authRouter);
-app.post('/homepage',LYBRouter);
+app.post('/homepage',authRouter);
+app.post('/itemUpload',homepageRouter);
+app.post('/back-to-store',homepageRouter);
+app.post('/itemInfoAdded',homepageRouter);
 
 
 // catch 404 and forward to error handler

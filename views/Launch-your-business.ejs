@@ -17,18 +17,19 @@
 <br><br><br><br>
 <div class="container contact-form">
     <div class="contact-image">
-        <img src="gs://bybrisk-d2074.appspot.com/bgauth2.png" style="width: 200px; height:200px;" alt="rocket_contact"/>
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
     </div>
     <form id="businessLaunching" method="POST" action="/homepage" enctype="multipart/form-data">
-        <input type="text" name="emailbusiness" value='<%=email%>' hidden/>
+        <input type="text" name="emailbusiness" value='<%=email1%>' hidden/>
         <input type="text" name="namebusiness" value='<%=bName%>' hidden/>
+        <input type="text" name="bCity" value='<%=bCityName%>' hidden/>
         <h3 class="w3-xxlarge greetHeadline w3-hide-small"><font color="black">Connecting <b><%=bName%></b> on bybrisk.com</font></h3>
         <h3 class="w3-xlarge w3-hide-large w3-hide-medium greetHeadline"><font color="black">Connecting <b><%=bName%></b> on bybrisk.com</font></h3>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label><font size="3">Click the picture of your shop</font> </label>
-                    <label><font size="3">It should contain Outdoor Signage Board of your shop</font> </label>
+                    <label><font size="3"><h5>Click the picture of your shop</h5></font> </label>
+                    <label><font size="2">(It should contain Outdoor Signage Board of your shop)</font> </label>
                     <input type="file" name="bHoardingPic" id="maleno" class="form-control" form="businessLaunching">
                 </div>
             </div>
@@ -36,43 +37,47 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label><font size="2">Select Business Category</font> </label>
-                    <select name="bCat" class="form-control" form="businessLaunching">
-                        <option value="Food / Restaurant">Food / Restaurant</option>
-                        <option value="Bakeries / Cakes">Bakeries / Cakes</option>
-                        <option value="Health / Pharmacy">Health / Pharmacy</option>
-                        <option value="Grocery">Grocery</option>
-                        <option value="Flower Shop">Flower Shop</option>
-                        <option value="Gifts">Gifts</option>
-                        <option value="Documents">Documents</option>
-                        <option value="Apparels">Apparels</option>
-                        <option value="Services">Services</option>
-                        <option value="Others / Please specify">Others / Please specify</option>
-                    </select>
+                    <label><font size="2">Set a password</font> </label>
+                    <input type="password" name="passwordTxtField" id="pass" class="form-control" placeholder="Password *" />
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label><font size="2">Select City</font> </label>
-                    <select name="bCity" class="form-control" form="businessGettingStarted">
-                        <option value="Bhopal">Bhopal</option>
-                    </select>
+                    <label><font size="2">Confirm password</font> </label>
+                    <input type="password" name="cnfPasswordTxtField" id="cnfPass" class="form-control" placeholder="Retype Password *" onkeyup="checkPassword()"/>
+                    <lable><h5 id="showMsg"></h5></lable>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="submit" name="btnSubmit" class="btnContact" value="Continue"/>
+                    <input type="submit" name="btnSubmit" class="btnContact" id="continueBtn" value="Continue" disabled/>
                 </div>
             </div>
         </div>
     </form>
 </div>
 
-
+<script>
+    function checkPassword(){
+        pass=document.getElementById("pass").value;
+        cnfPass=document.getElementById("cnfPass").value;
+        if(pass==""||cnfPass==""){
+            document.getElementById("showMsg").innerHTML="";
+        }
+        if(pass!=cnfPass){
+            document.getElementById("showMsg").innerHTML="Password Donot Match";
+            document.getElementById("continueBtn").disabled=true;
+        }
+        else{
+            document.getElementById("showMsg").innerHTML="Password match";
+            document.getElementById("continueBtn").disabled=false;
+        }
+    }
+</script>
 
 </body>
 </html>
