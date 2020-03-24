@@ -4,9 +4,11 @@ var admin = require('firebase-admin');
 var serviceAccount = require("../serviceAccountKey.json");
 
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
+    credential: admin.credential.cert(serviceAccount),
+    storageBucket: "bybrisk-d2074.appspot.com"
 });
 let db = admin.firestore();
+
 /* GET auth page. */
 router.get('/', function(req, res, next) {
     res.render('auth',
@@ -47,7 +49,7 @@ router.get('/launch-your-business',function (req,res,next) {
     },{merge: true});
 
     res.render('Launch-your-business',
-        { title: 'Bybrisk | Launching',
+        { title: 'Bybrisk | '+req.query.namebusiness,
             bName: req.query.namebusiness,
             bCityName : req.query.bCity,
             link1:'Basic Info',
