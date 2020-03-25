@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
             link1:'>> Basic Info',
             link2:'Getting started',
         link3:'Launching',
-        link4:''});
+        link4:'signin'});
 });
 
 //processing basic-info of businesses
@@ -36,7 +36,7 @@ router.post('/getting-started',function (req,res,next) {
             link1:'Basic Info',
             link2:'>> Getting started',
             link3:'Launching',
-            link4:'',
+            link4:'signin',
             email:req.body.email});
 });
 
@@ -56,7 +56,7 @@ router.get('/launch-your-business',function (req,res,next) {
             link1:'Basic Info',
             link2:'Getting started',
             link3:'>> Launching',
-            link4:'',
+            link4:'signin',
             email1:req.query.emailbusiness});
 });
 
@@ -99,8 +99,64 @@ router.post('/homepage',function (req,res,next) {
             link1:'Basic Info',
             link2:'Getting started',
             link3:'>> Launching',
-            link4:'',
+            link4:'logout',
             email:req.body.emailbusiness});
+});
+
+//siginin processflow
+router.post('/redirecting',function (req,res,next) {
+    let ColRef = db.collection('businessPartners').doc(req.body.emailSignin);
+    let getDoc = ColRef.get()
+        .then(doc => {
+            if (!doc.exists) {
+                console.log('No such document!');
+                res.render('oops',
+                    { title: 'Bybrisk | Not Found Error',
+                        errMsg:'User Not Found!',
+                        link1:'Our Services',
+                        link2:'Contact',
+                        link3:'signin',
+                        link4:'',
+                        email:req.body.emailSignin});
+            } else {
+                console.log('Document data:', doc.data());
+                if(doc.data().password==req.body.passwordSignin){
+                    res.render('homepage',
+                        { title: 'Bybrisk | '+req.body.emailSignin,
+                            bName: doc.data().businessName,
+                            bCityName : doc.data().businessCity,
+                            link1:'Your Store',
+                            link2:'Profile',
+                            link3:'logout',
+                            link4:'',
+                            email:req.body.emailSignin});
+                        }
+                else{
+                    res.render('oops',
+                        { title: 'Bybrisk | Password Error',
+                            errMsg:'Password you entered is wrong!',
+                            link1:'Our Services',
+                            link2:'Contact',
+                            link3:'signin',
+                            link4:'',
+                            email:req.body.emailSignin});
+                }
+
+                }
+
+        })
+        .catch(err => {
+            console.log('Error getting document', err);
+            res.render('oops',
+                { title: 'Bybrisk | Error',
+                    errMsg:'Error fetching document!',
+                    link1:'Our Services',
+                    link2:'Contact',
+                    link3:'signin',
+                    link4:'',
+                    email:req.body.emailSignin});
+        });
+
 });
 
 

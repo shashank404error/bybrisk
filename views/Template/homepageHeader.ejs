@@ -13,10 +13,10 @@
         <a href="#home" class="w3-bar-item w3-button w3-wide"><img src="/images/mainLogo.png" style="height: 60px;width: 200px"></a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item w3-button w3-light-grey"><%=link1%></a>
-            <a href="#contact" class="w3-bar-item w3-button w3-light-grey"><%=link2%></a>
-            <a href="#contact" class="w3-bar-item w3-button w3-light-grey"><%=link3%></a>
-            <a href="#contact" class="w3-bar-item w3-button"><%=link4%></a>
+            <a href="#about" class="w3-bar-item w3-button w3-light-grey" onclick='<%=link1%>()'><%=link1%></a>
+            <a href="#contact" class="w3-bar-item w3-button w3-light-grey" onclick='<%=link2%>()'><%=link2%></a>
+            <a href="#contact" class="w3-bar-item w3-button w3-light-grey" onclick='<%=link3%>()'><%=link3%></a>
+            <a href="#contact" class="w3-bar-item w3-button" onclick='<%=link4%>()'><%=link4%></a>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -29,10 +29,10 @@
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"><%=link1%></a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><%=link2%></a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><%=link3%></a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><%=link4%></a>
+    <a href="#about" onclick='<%=link1%>()' class="w3-bar-item w3-button"><%=link1%></a>
+    <a href="#contact" onclick='<%=link2%>()' class="w3-bar-item w3-button"><%=link2%></a>
+    <a href="#contact" onclick='<%=link3%>()' class="w3-bar-item w3-button"><%=link3%></a>
+    <a href="#contact" onclick='<%=link4%>()' class="w3-bar-item w3-button"><%=link4%></a>
 </nav>
 <script>
     // Modal Image Gallery
@@ -58,5 +58,10 @@
     // Close the sidebar with the close button
     function w3_close() {
         mySidebar.style.display = "none";
+    }
+
+    function logout(){
+        window.location.replace("https://bybrisk.herokuapp.com");
+        w3_close();
     }
 </script>

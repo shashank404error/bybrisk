@@ -13,9 +13,9 @@ router.post('/itemUpload', function(req, res, next) {
         bName:req.body.businessName,
         bCity:req.body.businessCity,
         email:req.body.emailbusiness,
-        link1:'Our Services',
-        link2:'Contact',
-        link3:'',
+        link1:'Your store',
+        link2:'Profile',
+        link3:'logout',
         link4:''});
 });
 
@@ -28,9 +28,9 @@ router.post('/back-to-store', function(req, res, next) {
         { title: 'Bybrisk | '+req.body.businessName,
             bName: req.body.businessName,
             bCityName : req.body.businessCity,
-            link1:'Basic Info',
-            link2:'Getting started',
-            link3:'>> Launching',
+            link1:'Your Store',
+            link2:'Profile',
+            link3:'logout',
             link4:'',
             email:req.body.emailbusiness});
 });
@@ -61,9 +61,9 @@ router.post('/itemInfoAdded', function(req, res, next) {
         { title: 'Bybrisk | '+req.body.businessName,
             bName: req.body.businessName,
             bCityName : req.body.businessCity,
-            link1:'Basic Info',
-            link2:'Getting started',
-            link3:'>> Launching',
+            link1:'Your Store',
+            link2:'Profile',
+            link3:'logout',
             link4:'',
             email:req.body.emailbusiness});
 });

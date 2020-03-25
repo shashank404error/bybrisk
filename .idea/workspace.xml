@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7e4c7a-c538-4880-9856-04e89f01e6ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/homepage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/add-item-to-your-store.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/oops.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/demo-hoarding.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/Launch-your-business.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Launch-your-business.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Launch-your-business.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/Template/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Template/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/auth.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getting-started.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/getting-started.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/homepage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homepage.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +74,8 @@
       <workItem from="1584936000359" duration="18549000" />
       <workItem from="1584959894972" duration="2292000" />
       <workItem from="1584984916521" duration="11160000" />
-      <workItem from="1585023928143" duration="36352000" />
+      <workItem from="1585023928143" duration="36853000" />
+      <workItem from="1585113028265" duration="10348000" />
     </task>
     <servers />
   </component>
@@ -98,22 +95,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585045737470" />
-    <state width="1345" height="213" key="GridCell.Tab.0.bottom" timestamp="1585073995578">
+    <state width="1345" height="276" key="GridCell.Tab.0.bottom" timestamp="1585127193583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="213" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585073995578" />
-    <state width="1345" height="213" key="GridCell.Tab.0.center" timestamp="1585073995578">
+    <state width="1345" height="276" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585127193583" />
+    <state width="1345" height="276" key="GridCell.Tab.0.center" timestamp="1585127193579">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="213" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585073995578" />
-    <state width="1345" height="213" key="GridCell.Tab.0.left" timestamp="1585073995578">
+    <state width="1345" height="276" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585127193579" />
+    <state width="1345" height="276" key="GridCell.Tab.0.left" timestamp="1585127193579">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="213" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585073995578" />
-    <state width="1345" height="213" key="GridCell.Tab.0.right" timestamp="1585073995578">
+    <state width="1345" height="276" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585127193579" />
+    <state width="1345" height="276" key="GridCell.Tab.0.right" timestamp="1585127193579">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="213" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585073995578" />
+    <state width="1345" height="276" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585127193579" />
     <state width="1308" height="159" key="GridCell.Tab.1.bottom" timestamp="1584898728985">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -162,9 +159,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1308" height="204" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1584800779597" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585023933795">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585113916594">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585023933795" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585113916594" />
+    <state x="339" y="17" width="670" height="676" key="search.everywhere.popup" timestamp="1585124341614">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="17" width="670" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585124341614" />
   </component>
 </project>

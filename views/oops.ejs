@@ -1,0 +1,25 @@
+<html>
+<title><%=title%></title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter:700&display=swap" rel="stylesheet">
+    <link href="/stylesheets/auth.css" rel="stylesheet">
+
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+
+<% include Template/header.ejs %>
+<br><br>
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+    </div>
+     <h2><%=errMsg%></h2>
+</div>
+</body>
+</html>

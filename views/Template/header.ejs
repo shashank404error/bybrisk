@@ -1,9 +1,16 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="/stylesheets/auth.css" rel="stylesheet">
     <style>
         .w3-bar{
             padding: 16px;
+        }
+        body{
+            background: white;
         }
     </style>
 
@@ -13,11 +20,12 @@
         <a href="#home" class="w3-bar-item w3-button w3-wide"><img src="/images/mainLogo.png" style="height: 60px;width: 200px"></a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item w3-button"><%=link1%></a>
-            <a href="#contact" class="w3-bar-item w3-button"><%=link2%></a>
-            <a href="#contact" class="w3-bar-item w3-button"><%=link3%></a>
-            <a href="#contact" class="w3-bar-item w3-button"><%=link4%></a>
+            <a href="#about" class="w3-bar-item w3-button"  data-toggle="modal" data-target='#<%=link1%>'><%=link1%></a>
+            <a href="#contact" class="w3-bar-item w3-button"  data-toggle="modal" data-target='#<%=link2%>'><%=link2%></a>
+            <a class="w3-bar-item w3-button" data-toggle="modal" data-target='#<%=link3%>'><%=link3%></a>
+            <a href="#contact" class="w3-bar-item w3-button"  data-toggle="modal" data-target='#<%=link4%>'><%=link4%></a>
         </div>
+
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
         <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
@@ -25,15 +33,63 @@
         </a>
     </div>
 </div>
-
+<h1 id="signinMsg"></h1>
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"><%=link1%></a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><%=link2%></a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><%=link3%></a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><%=link4%></a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button" data-toggle="modal" data-target='#<%=link1%>'><%=link1%></a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button" data-toggle="modal" data-target='#<%=link2%>'><%=link2%></a>
+    <a class="w3-bar-item w3-button" onclick="w3_close()" data-toggle="modal" data-target='#<%=link3%>'><%=link3%></a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button" data-toggle="modal" data-target='#<%=link4%>'><%=link4%></a>
 </nav>
+
+<!-----------------------------------------------modal------------------------------------------------------------->
+<div class="modal fade" id='signin' role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Signin</h4>
+            </div>
+            <div class="modal-body">
+                <!---------------------------------------signin form------------------------------------>
+                <div class="container contact-form">
+                    <div class="contact-image">
+                        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+                    </div>
+                    <form name="signinForm" method="POST" action="/redirecting">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" name="emailSignin" class="form-control" placeholder="Email *"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="password" name="passwordSignin" class="form-control" placeholder="Password *" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" name="btnSubmit" class="btnContact" value="Signin" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     // Modal Image Gallery
     function onClick(element) {
