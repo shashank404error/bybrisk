@@ -24,26 +24,16 @@ router.post('/back-to-store', function(req, res, next) {
     let bPartnerInfo = docRef.set({
         bybriskStore: 'Inactive',
     },{merge: true});
-    res.render('homepage',
-        { title: 'Bybrisk | '+req.body.businessName,
-            bName: req.body.businessName,
-            bCityName : req.body.businessCity,
-            link1:'Your Store',
-            link2:'Profile',
-            link3:'logout',
-            link4:'',
-            email:req.body.emailbusiness});
+
+    //fetch all items and load homepage
+    fetchAllItemsAndLoadHomePage(req,res,req.body.emailbusiness,req.body.businessName,req.body.businessCity);
 });
 
 router.post('/itemInfoAdded', function(req, res, next) {
-    //let docRef = db.collection('storeItems').doc(req.body.emailbusiness);
-    //let bPartnerInfo = docRef.set({
-     //   bybriskStore: 'Inactive',
-   // },{merge: true});
 
     let addDoc = db.collection('storeItems').add({
         businessName: req.body.businessName,
-        businessEmail: req.body.businessCity,
+        businessEmail: req.body.emailbusiness,
         itemCategory:req.body.itemCatSelect,
         itemName:req.body.commodityNameInput,
         itemBrand:req.body.commodityBrandInput,
@@ -57,16 +47,59 @@ router.post('/itemInfoAdded', function(req, res, next) {
         });
     });
 
-    res.render('homepage',
-        { title: 'Bybrisk | '+req.body.businessName,
-            bName: req.body.businessName,
-            bCityName : req.body.businessCity,
-            link1:'Your Store',
-            link2:'Profile',
-            link3:'logout',
-            link4:'',
-            email:req.body.emailbusiness});
+    fetchAllItemsAndLoadHomePage(req,res,req.body.emailbusiness,req.body.businessName,req.body.businessCity);
+
+
 });
 
+function fetchAllItemsAndLoadHomePage(req,res,businessEmail,businessName,businessCity){
+    //fetch store items for homepage
+    var objItemIndividual = new Array();
+    var bname = new Array();
+    var itemBrand = new Array();
+    var itemCat = new Array();
+    var itemName = new Array();
+    var itemQuantity = new Array();
+    var itemprice = new Array();
+
+    let citiesRef = db.collection('storeItems');
+    let query = citiesRef.where('businessEmail', '==',businessEmail ).get()
+        .then(snapshot => {
+            if (snapshot.empty) {
+                console.log('No matching documents.');
+                res.render('homepage',
+                    { title: 'Bybrisk | '+businessName,
+                        bName: businessName,
+                        bCityName : businessCity,
+                        link1:'Your Store',
+                        link2:'Profile',
+                        link3:'logout',
+                        link4:'',
+                        email:businessEmail,
+                        objItemData:[],
+                        emptyErr:'Your Store Is Empty'});
+            }
+            snapshot.forEach(doc => {
+                //console.log(doc.id, '=>', doc.data());
+                objItemIndividual.push(doc.data());
+            });
+            console.log(objItemIndividual);
+            res.render('homepage',
+                { title: 'Bybrisk | '+businessName,
+                    bName: businessName,
+                    bCityName : businessCity,
+                    link1:'Your Store',
+                    link2:'Profile',
+                    link3:'logout',
+                    link4:'',
+                    email:businessEmail,
+                    objItemData:objItemIndividual,
+                    emptyErr:''});
+        })
+        .catch(err => {
+            console.log('Error getting documents', err);
+        });
+
+            }
 
 module.exports = router;

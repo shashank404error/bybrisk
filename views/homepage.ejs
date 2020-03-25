@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <head>
     <style>
         #lappyImg {
@@ -12,12 +16,18 @@
         #mobImg{
             display: none;
         }
+        #mobCard{
+            width:300px;
+        }
         @media only screen and (max-width: 600px) {
             #lappyImg {
                 display: none;
             }
             #mobImg{
                 display: block;
+            }
+            #mobCard{
+                width:85%;
             }
         }
     </style>
@@ -49,29 +59,27 @@
 
 <div class="w3-row w3-container" style="margin:50px 0">
 
-    <div class="w3-row-padding">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <img src="/images/atta.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-            <div class="w3-container w3-white">
-                <p><b>Parivar King Atta</b></p>
-                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-            </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom">
-            <img src="/images/bread.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-            <div class="w3-container w3-white">
-                <p><b>Golden Toast</b></p>
-                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-            </div>
-        </div>
-        <div class="w3-third w3-container">
-            <img src="/images/salt.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-            <div class="w3-container w3-white">
-                <p><b>Tata Salt</b></p>
-                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+<h2><%=emptyErr%></h2>
+    <div class="row">
+    <%objItemData.forEach(function(item1){%>
+        <div class="col-md-4 col-sm-12">
+    <div class="container w3-margin-left w3-padding-16">
+        <div class="card w3-margin-left" id="mobCard">
+            <img class="card-img-top" src="/images/item.png" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h3 class="card-title"><%=item1.itemName%></h3>
+                <p class="card-text"><h4>Stock : <font size="4"><%=item1.itemQuantity%></font></h4>
+                    <h4>Brand : <font size="4"><%=item1.itemBrand%></font></h4>
+                    <h4>Price : ₹<font size="4"><%=item1.itemPrice%></font></h4></p>
+                <a href="#" class="btn btn-primary stretched-link">See Detail</a>
             </div>
         </div>
     </div>
+        </div>
+    <%});%>
+    </div>
+
+
 </div>
 
 

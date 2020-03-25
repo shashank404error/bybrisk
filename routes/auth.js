@@ -76,7 +76,7 @@ router.post('/homepage',function (req,res,next) {
     });
 
     //upload to Google Cloud Storage
-    var filename1 = req.files.bHoardingPic;
+   /** var filename1 = req.files.bHoardingPic;
     console.log(filename1.tempFilePath+"\\"+filename1.name);
     filename1.mv('./public/images/businessPartner/'+filename1.name);
     async function uploadFile() {
@@ -89,18 +89,10 @@ router.post('/homepage',function (req,res,next) {
         });
     }
 
-    uploadFile().catch(console.error);
+    uploadFile().catch(console.error);**/
 
+    fetchAllItemsAndLoadHomePage(req,res,req.body.emailbusiness,req.body.namebusiness,req.body.bCity);
 
-    res.render('homepage',
-        { title: 'Bybrisk | '+req.body.namebusiness,
-            bName: req.body.namebusiness,
-            bCityName : req.body.bCity,
-            link1:'Basic Info',
-            link2:'Getting started',
-            link3:'>> Launching',
-            link4:'logout',
-            email:req.body.emailbusiness});
 });
 
 //siginin processflow
@@ -120,16 +112,10 @@ router.post('/redirecting',function (req,res,next) {
                         email:req.body.emailSignin});
             } else {
                 console.log('Document data:', doc.data());
+                bPartnerObj=doc.data()
                 if(doc.data().password==req.body.passwordSignin){
-                    res.render('homepage',
-                        { title: 'Bybrisk | '+req.body.emailSignin,
-                            bName: doc.data().businessName,
-                            bCityName : doc.data().businessCity,
-                            link1:'Your Store',
-                            link2:'Profile',
-                            link3:'logout',
-                            link4:'',
-                            email:req.body.emailSignin});
+
+                    fetchAllItemsAndLoadHomePage(req,res,req.body.emailSignin,bPartnerObj.businessName,bPartnerObj.businessCity);
                         }
                 else{
                     res.render('oops',
@@ -159,5 +145,47 @@ router.post('/redirecting',function (req,res,next) {
 
 });
 
+function fetchAllItemsAndLoadHomePage(req,res,businessEmail,businessName,businessCity){
+    //fetch store items for homepage
+    var objItemIndividual = new Array();
+
+    let citiesRef = db.collection('storeItems');
+    let query = citiesRef.where('businessEmail', '==',businessEmail ).get()
+        .then(snapshot => {
+            if (snapshot.empty) {
+                console.log('No matching documents.');
+                res.render('homepage',
+                    { title: 'Bybrisk | '+businessName,
+                        bName: businessName,
+                        bCityName : businessCity,
+                        link1:'Your Store',
+                        link2:'Profile',
+                        link3:'logout',
+                        link4:'',
+                        email:businessEmail,
+                        objItemData:[],
+                        emptyErr:'Your Store Is Empty'});
+            }
+            snapshot.forEach(doc => {
+                //console.log(doc.id, '=>', doc.data());
+                objItemIndividual.push(doc.data());
+            });
+            console.log(objItemIndividual[0].itemName);
+            res.render('homepage',
+                { title: 'Bybrisk | '+businessName,
+                    bName: businessName,
+                    bCityName : businessCity,
+                    link1:'Your Store',
+                    link2:'Profile',
+                    link3:'logout',
+                    link4:'',
+                    email:businessEmail,
+                    objItemData:objItemIndividual,
+                    emptyErr:''});
+        })
+        .catch(err => {
+            console.log('Error getting documents', err);
+        });
+}
 
 module.exports = router;
