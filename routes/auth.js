@@ -5,10 +5,10 @@ var serviceAccount = require("../serviceAccountKey.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    storageBucket: "bybrisk-d2074.appspot.com"
+    databaseURL: "https://bybrisk-31f19.firebaseio.com"
 });
 let db = admin.firestore();
-var bucket = admin.storage().bucket();
+//var bucket = admin.storage().bucket();
 
 /* GET auth page. */
 router.get('/', function(req, res, next) {
@@ -111,7 +111,7 @@ router.post('/redirecting',function (req,res,next) {
                         link4:'',
                         email:req.body.emailSignin});
             } else {
-                console.log('Document data:', doc.data());
+                //console.log('Document data:', doc.data());
                 bPartnerObj=doc.data()
                 if(doc.data().password==req.body.passwordSignin){
 
