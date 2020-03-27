@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label><font size="3"><h5>Click the picture of your shop</h5></font> </label>
                     <label><font size="2">(It should contain Outdoor Signage Board of your shop)</font> </label>
-                    <input type="file" name="bHoardingPic" id="maleno" class="form-control" form="businessLaunching">
+                    <input type="file" name="bHoardingPic" id="maleno" class="form-control" form="businessLaunching" required>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label><font size="2">Set a password</font> </label>
-                    <input type="password" name="passwordTxtField" id="pass" class="form-control" placeholder="Password *" />
+                    <input type="password" name="passwordTxtField" id="pass" class="form-control" placeholder="Password *" required/>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label><font size="2">Confirm password</font> </label>
-                    <input type="password" name="cnfPasswordTxtField" id="cnfPass" class="form-control" placeholder="Retype Password *" onkeyup="checkPassword()"/>
+                    <input type="password" name="cnfPasswordTxtField" id="cnfPass" class="form-control" placeholder="Retype Password *" onkeyup="checkPassword()" required/>
                     <lable><h5 id="showMsg"></h5></lable>
                 </div>
             </div>

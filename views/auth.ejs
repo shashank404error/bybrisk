@@ -25,21 +25,22 @@
            <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="email" class="form-control" placeholder="Email *"/>
+                    <input type="text" id="businessEmail" name="email" class="form-control" placeholder="Email *" onkeyup="checkUserExist()" required/>
+                    <label><h5 id="showIfUserExist"></h5></label>
                 </div>
             </div>
            </div>
            <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="fName" class="form-control" placeholder="First name *" value="" />
+                    <input type="text" name="fName" class="form-control" placeholder="First name *" value="" required/>
                 </div>
             </div>
            </div>
            <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="lName" class="form-control" placeholder="Last name *" value="" />
+                    <input type="text" name="lName" class="form-control" placeholder="Last name *" value="" required/>
                 </div>
             </div>
            </div>
@@ -49,14 +50,14 @@
                </div>
             <div class="col-md-10">
                 <div class="form-group">
-                    <input type="number" name="phoneNum" class="form-control" placeholder="10 digit phone number *" value="" />
+                    <input type="number" name="phoneNum" class="form-control" placeholder="10 digit phone number *" value="" required/>
                 </div>
             </div>
            </div>
            <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" name="bName" class="form-control" placeholder="Name of the business *" value="" />
+                    <input type="text" name="bName" class="form-control" placeholder="Name of the business *" value="" required/>
                     <label><font size="2">This could be the name of your store.</font></label>
                 </div>
             </div>
@@ -64,11 +65,47 @@
            <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="submit" name="btnSubmit" class="btnContact" value="Continue" />
+                    <input type="submit" name="btnSubmit" id="emailSubmitBtn" class="btnContact" value="Continue" disabled/>
                 </div>
             </div>
            </div>
     </form>
 </div>
+
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+<script>
+var firebaseConfig = {
+apiKey: "AIzaSyCUzbitqkIzeky0E2ZO0bhWbANgsJW_-Z0",
+authDomain: "bybrisk-31f19.firebaseapp.com",
+databaseURL: "https://bybrisk-31f19.firebaseio.com",
+projectId: "bybrisk-31f19",
+storageBucket: "bybrisk-31f19.appspot.com",
+messagingSenderId: "440977790126",
+appId: "1:440977790126:web:9a2c3694442c28dc6c093f",
+measurementId: "G-5C0PXH170K"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+
+function checkUserExist()
+{
+    var bEmail = document.getElementById("businessEmail").value;
+    var docRef = db.collection("businessPartners").doc(bEmail);
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            document.getElementById("showIfUserExist").innerHTML="<font color=red>User Already Exist!</font>";
+            document.getElementById("emailSubmitBtn").disabled = true;
+        } else {
+            document.getElementById("showIfUserExist").innerHTML="<font color=#3cb371>Username Available</font>";
+            document.getElementById("emailSubmitBtn").disabled = false;
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+}
+</script>
 </body>
 </html>
