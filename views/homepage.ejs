@@ -37,8 +37,8 @@
 <% include Template/homepageHeader.ejs %>
 
 <div class="w3-display-container" style="margin-bottom:50px">
-    <img id="lappyImg" src="/images/im3.jpg" style="width:100%; height:300px;opacity:0.7;">
-    <img id="mobImg" src="/images/im2.jpg" style="width:100%; height:300px;opacity:0.7;">
+    <img id="lappyImg" src="test" style="width:100%; height:300px;opacity:0.7;">
+    <img id="mobImg" src="test" style="width:100%; height:300px;opacity:0.7;">
     <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange"
          style="bottom:10%;opacity:0.7;width:70%">
         <h2><b><%=bName%>, <%=bCityName%></b></h2>
@@ -49,7 +49,7 @@
 <div class="row" id="recipieUpload">
     <div class="col-12"><center>
                 <form method="POST" action="/itemUpload">
-                    <input type="text" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
                     <input type="text" name="businessName" value='<%=bName%>' hidden/>
                     <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
                     <h4>  <b>Add item to store</b>
@@ -82,6 +82,34 @@
 
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase.js"></script>
+<script>
+    var bEmail = document.getElementById("bEmail").value;
+    var firebaseConfig = {
+        apiKey: "AIzaSyCUzbitqkIzeky0E2ZO0bhWbANgsJW_-Z0",
+        authDomain: "bybrisk-31f19.firebaseapp.com",
+        databaseURL: "https://bybrisk-31f19.firebaseio.com",
+        projectId: "bybrisk-31f19",
+        storageBucket: "bybrisk-31f19.appspot.com",
+        messagingSenderId: "440977790126",
+        appId: "1:440977790126:web:9a2c3694442c28dc6c093f",
+        measurementId: "G-5C0PXH170K"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var storageRef = firebase.storage().ref();
+    var spaceRef = storageRef.child('images/businessPartnersShops/'+bEmail+'.jpg');
+    storageRef.child('images/businessPartnersShops/'+bEmail+'.jpg').getDownloadURL().then(function(url) {
+        var test = url;
+        document.getElementById('lappyImg').src = test;
+        document.getElementById('mobImg').src = test;
+
+    }).catch(function(error) {
+        document.getElementById('lappyImg').src = '/images/bgauth3.png';
+        document.getElementById('mobImg').src = '/images/im2.jpg';
+    });
+</script>
 
 </body>
 </html>

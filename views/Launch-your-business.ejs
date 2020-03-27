@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bitter:700&display=swap" rel="stylesheet">
     <link href="/stylesheets/auth.css" rel="stylesheet">
 
+
 </head>
 <!------ Include the above in your HEAD tag ---------->
 <body>
@@ -20,7 +21,7 @@
         <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
     </div>
     <form id="businessLaunching" method="POST" action="/homepage" enctype="multipart/form-data">
-        <input type="text" name="emailbusiness" value='<%=email1%>' hidden/>
+        <input type="text" id="emailBusinessContext" name="emailbusiness" value='<%=email1%>' hidden/>
         <input type="text" name="namebusiness" value='<%=bName%>' hidden/>
         <input type="text" name="bCity" value='<%=bCityName%>' hidden/>
         <h3 class="w3-xxlarge greetHeadline w3-hide-small"><font color="black">Connecting <b><%=bName%></b> on bybrisk.com</font></h3>
@@ -55,6 +56,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <input type="submit" name="btnSubmit" class="btnContact" id="continueBtn" value="Continue" disabled/>
+                    <h5 id="showUploadStatus"></h5>
                 </div>
             </div>
         </div>
@@ -79,5 +81,46 @@
     }
 </script>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCUzbitqkIzeky0E2ZO0bhWbANgsJW_-Z0",
+        authDomain: "bybrisk-31f19.firebaseapp.com",
+        databaseURL: "https://bybrisk-31f19.firebaseio.com",
+        projectId: "bybrisk-31f19",
+        storageBucket: "bybrisk-31f19.appspot.com",
+        messagingSenderId: "440977790126",
+        appId: "1:440977790126:web:9a2c3694442c28dc6c093f",
+        measurementId: "G-5C0PXH170K"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //Get elements
+    var fileButton = document.getElementById("maleno");
+    var emailB = document.getElementById("emailBusinessContext").value;
+    console.log(emailB);
+    //listen to file selection
+    fileButton.addEventListener('change',function(e) {
+        //get the file
+        var files = e.target.files[0];
+        //create a storage reference
+        var storageRef = firebase.storage().ref('images/businessPartnersShops/'+emailB+'.jpg');
+        //upload file
+        var task = storageRef.put(files);
+        task.on('state_changed',
+
+            function error(err){
+                console.log(err);
+            },
+            function complete(){
+                console.log("Uploaded Successfully");
+                document.getElementById("showUploadStatus").innerHTML="Upload was done";
+            }
+        );
+    });
+</script>
 </body>
 </html>
