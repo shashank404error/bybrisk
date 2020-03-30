@@ -5,11 +5,10 @@ var serviceAccount = require("../serviceAccountKey.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://bybrisk-31f19.firebaseio.com"
+    databaseURL: "https://bybrisk-31f19.firebaseio.com",
+    storageBucket: "bybrisk-31f19.appspot.com"
 });
 let db = admin.firestore();
-//var bucket = admin.storage().bucket();
-
 /* GET auth page. */
 router.get('/', function(req, res, next) {
     res.render('auth',
@@ -165,23 +164,25 @@ function fetchAllItemsAndLoadHomePage(req,res,businessEmail,businessName,busines
                         email:businessEmail,
                         objItemData:[],
                         emptyErr:'Your Store Is Empty'});
+            }else {
+                snapshot.forEach(doc => {
+                    //console.log(doc.id, '=>', doc.data());
+                    objItemIndividual.push(doc.data());
+                });
+                res.render('homepage',
+                    {
+                        title: 'Bybrisk | ' + businessName,
+                        bName: businessName,
+                        bCityName: businessCity,
+                        link1: 'Your Store',
+                        link2: 'Profile',
+                        link3: 'logout',
+                        link4: '',
+                        email: businessEmail,
+                        objItemData: objItemIndividual,
+                        emptyErr: ''
+                    });
             }
-            snapshot.forEach(doc => {
-                //console.log(doc.id, '=>', doc.data());
-                objItemIndividual.push(doc.data());
-            });
-            console.log(objItemIndividual[0].itemName);
-            res.render('homepage',
-                { title: 'Bybrisk | '+businessName,
-                    bName: businessName,
-                    bCityName : businessCity,
-                    link1:'Your Store',
-                    link2:'Profile',
-                    link3:'logout',
-                    link4:'',
-                    email:businessEmail,
-                    objItemData:objItemIndividual,
-                    emptyErr:''});
         })
         .catch(err => {
             console.log('Error getting documents', err);

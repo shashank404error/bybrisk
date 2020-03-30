@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var admin = require('firebase-admin');
+
 let db = admin.firestore();
 
 /* GET auth page. */
@@ -29,38 +30,57 @@ router.post('/back-to-store', function(req, res, next) {
     fetchAllItemsAndLoadHomePage(req,res,req.body.emailbusiness,req.body.businessName,req.body.businessCity);
 });
 
-router.post('/itemInfoAdded', function(req, res, next) {
+router.get('/itemInfoAdded', function(req, res, next) {
 
     let addDoc = db.collection('storeItems').add({
-        businessName: req.body.businessName,
-        businessEmail: req.body.emailbusiness,
-        itemCategory:req.body.itemCatSelect,
-        itemName:req.body.commodityNameInput,
-        itemBrand:req.body.commodityBrandInput,
-        itemPrice:req.body.commodityPriceInput,
-        itemQuantity:req.body.commodityQuantityInput
+        businessName: req.query.businessName,
+        businessEmail: req.query.emailbusiness,
+        itemCategory:req.query.itemCatSelect,
+        itemName:req.query.commodityNameInput,
+        itemBrand:req.query.commodityBrandInput,
+        itemPrice:req.query.commodityPriceInput,
+        itemQuantity:req.query.commodityQuantityInput
     }).then(ref => {
         console.log('Added document with ID: ', ref.id);
-        let docRef = db.collection('businessItemMap').doc(req.body.emailbusiness);
-        let bPartnerInfo = docRef.update({
+        let docRef1 = db.collection('businessItemMap').doc(req.query.emailbusiness);
+        let bPartnerInfo1 = docRef1.update({
             itemsInStore: admin.firestore.FieldValue.arrayUnion(ref.id)
         });
+        res.render('postItemImg', { title: 'Bybrisk | Add Item to Store',
+            bName:req.query.businessName,
+            bCity:req.query.businessCity,
+            email:req.query.emailbusiness,
+            refItemId : ref.id,
+            link1:'Your store',
+            link2:'Profile',
+            link3:'logout',
+            link4:''});
     });
 
-    fetchAllItemsAndLoadHomePage(req,res,req.body.emailbusiness,req.body.businessName,req.body.businessCity);
+    //fetchAllItemsAndLoadHomePage(req,res,req.body.emailbusiness,req.body.businessName,req.body.businessCity);
 
 
+});
+
+router.get('/itemPicAdded', function(req, res, next) {
+    //fetch all items and load homepage
+    var bucket = admin.storage().bucket();
+    const file = bucket.file('images/itemPic/'+req.query.refItemId+'.jpg');
+    file.makePublic().then(function(data) {
+        const apiResponse = data[0];
+    });
+
+    let docRef = db.collection('storeItems').doc(req.query.refItemId);
+    let bPartnerInfo = docRef.set({
+        itemPicURL: req.query.refItemId,
+    },{merge: true});
+
+    fetchAllItemsAndLoadHomePage(req,res,req.query.emailbusiness,req.query.businessName,req.query.businessCity);
 });
 
 function fetchAllItemsAndLoadHomePage(req,res,businessEmail,businessName,businessCity){
     //fetch store items for homepage
     var objItemIndividual = new Array();
-    var bname = new Array();
-    var itemBrand = new Array();
-    var itemCat = new Array();
-    var itemName = new Array();
-    var itemQuantity = new Array();
-    var itemprice = new Array();
 
     let citiesRef = db.collection('storeItems');
     let query = citiesRef.where('businessEmail', '==',businessEmail ).get()
@@ -78,28 +98,28 @@ function fetchAllItemsAndLoadHomePage(req,res,businessEmail,businessName,busines
                         email:businessEmail,
                         objItemData:[],
                         emptyErr:'Your Store Is Empty'});
+            }else {
+                snapshot.forEach(doc => {
+                    //console.log(doc.id, '=>', doc.data());
+                    objItemIndividual.push(doc.data());
+                });
+                res.render('homepage',
+                    {
+                        title: 'Bybrisk | ' + businessName,
+                        bName: businessName,
+                        bCityName: businessCity,
+                        link1: 'Your Store',
+                        link2: 'Profile',
+                        link3: 'logout',
+                        link4: '',
+                        email: businessEmail,
+                        objItemData: objItemIndividual,
+                        emptyErr: ''
+                    });
             }
-            snapshot.forEach(doc => {
-                //console.log(doc.id, '=>', doc.data());
-                objItemIndividual.push(doc.data());
-            });
-            console.log(objItemIndividual);
-            res.render('homepage',
-                { title: 'Bybrisk | '+businessName,
-                    bName: businessName,
-                    bCityName : businessCity,
-                    link1:'Your Store',
-                    link2:'Profile',
-                    link3:'logout',
-                    link4:'',
-                    email:businessEmail,
-                    objItemData:objItemIndividual,
-                    emptyErr:''});
         })
         .catch(err => {
             console.log('Error getting documents', err);
         });
-
-            }
-
+}
 module.exports = router;

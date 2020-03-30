@@ -31,7 +31,8 @@ app.get('/launch-your-business',authRouter);
 app.post('/homepage',authRouter);
 app.post('/itemUpload',homepageRouter);
 app.post('/back-to-store',homepageRouter);
-app.post('/itemInfoAdded',homepageRouter);
+app.get('/itemInfoAdded',homepageRouter);
+app.get('/itemPicAdded',homepageRouter);
 app.post('/redirecting',authRouter);
 
 

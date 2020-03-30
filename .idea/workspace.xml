@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7e4c7a-c538-4880-9856-04e89f01e6ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/addImgBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/postItemImg.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Launch-your-business.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Launch-your-business.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/getting-started.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/getting-started.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add-item-to-your-store.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/add-item-to-your-store.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/homepage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homepage.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,13 +29,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZNeuGoYfEFajAeXqCtf7L7WiU0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
@@ -74,14 +82,23 @@
       <workItem from="1585113028265" duration="27295000" />
       <workItem from="1585202902928" duration="2330000" />
       <workItem from="1585300257447" duration="6073000" />
-      <workItem from="1585315124084" duration="7343000" />
+      <workItem from="1585315124084" duration="7469000" />
+      <workItem from="1585365181146" duration="33867000" />
+      <workItem from="1585542292478" duration="4136000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="25" key="#Notifications" timestamp="1585465995786">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="25" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1585465995786" />
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584800831684">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -94,22 +111,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585045737470" />
-    <state width="1345" height="322" key="GridCell.Tab.0.bottom" timestamp="1585332513066">
+    <state width="1345" height="212" key="GridCell.Tab.0.bottom" timestamp="1585545802149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="322" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585332513066" />
-    <state width="1345" height="322" key="GridCell.Tab.0.center" timestamp="1585332513066">
+    <state width="1345" height="212" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
+    <state width="1345" height="212" key="GridCell.Tab.0.center" timestamp="1585545802149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="322" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585332513066" />
-    <state width="1345" height="322" key="GridCell.Tab.0.left" timestamp="1585332513062">
+    <state width="1345" height="212" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
+    <state width="1345" height="212" key="GridCell.Tab.0.left" timestamp="1585545802149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="322" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585332513062" />
-    <state width="1345" height="322" key="GridCell.Tab.0.right" timestamp="1585332513066">
+    <state width="1345" height="212" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
+    <state width="1345" height="212" key="GridCell.Tab.0.right" timestamp="1585545802149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="322" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585332513066" />
+    <state width="1345" height="212" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
     <state width="1308" height="159" key="GridCell.Tab.1.bottom" timestamp="1584898728985">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -158,14 +175,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1308" height="204" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1584800779597" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585315412693">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585542362323">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585315412693" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585542362323" />
     <state x="350" y="6" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585317447029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="350" y="6" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1585317447029" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1585509212667">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1585509212667" />
     <state x="339" y="17" width="670" height="676" key="search.everywhere.popup" timestamp="1585124341614">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
