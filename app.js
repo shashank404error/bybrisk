@@ -34,6 +34,7 @@ app.post('/back-to-store',homepageRouter);
 app.get('/itemInfoAdded',homepageRouter);
 app.get('/itemPicAdded',homepageRouter);
 app.post('/redirecting',authRouter);
+app.get('/categoryItem',homepageRouter);
 
 
 // catch 404 and forward to error handler

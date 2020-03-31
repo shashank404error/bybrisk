@@ -37,7 +37,7 @@
 <% include Template/homepageHeader.ejs %>
 
 <div class="w3-display-container" style="margin-bottom:50px">
-    <img id="lappyImg" src="test" style="width:100%; height:300px;opacity:0.7;">
+    <img id="lappyImg" src="/images/bgauth3.png" style="width:100%; height:300px;opacity:0.7;">
     <img id="mobImg" src="test" style="width:100%; height:300px;opacity:0.7;">
     <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange"
          style="bottom:10%;opacity:0.7;width:70%">
@@ -60,7 +60,7 @@
 <div class="w3-row w3-container" style="margin:50px 0">
 
 <h2><%=emptyErr%></h2>
-    <div class="row">
+ <!---   <div class="row">
     <%objItemData.forEach(function(item1){%>
         <div class="col-md-4 col-sm-12">
     <div class="container w3-margin-left w3-padding-16">
@@ -77,8 +77,111 @@
     </div>
         </div>
     <%});%>
+    </div>--->
+
+    <div class="w3-row-padding"><h3>Non-Food Items</h3><hr><h5><%=nfiEmpty%></h5>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat1%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Laundry And Detergents</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='laundryAndDetergents' hidden/>
+                    <input type="image" src="/images/laundryAndDetergents.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat2%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Baby Care</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='babyCare' hidden/>
+                    <input type="image" src="/images/babyCare.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat3%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Cleaning And Household</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='cleaningAndHousehold' hidden/>
+                    <input type="image" src="/images/cleaningAndHousehold.jpeg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat4%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Beauty And Hygiene</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='beautyAndHygiene' hidden/>
+                    <input type="image" src="/images/beautyAndHygiene.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
     </div>
 
+    <div class="w3-row-padding">
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat5%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Kitchen Garden And Pets</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='kitchenGardenAndPets' hidden/>
+                    <input type="image" src="/images/kitchenGardenAndPets.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="w3-row-padding"><h3>Food Items</h3><hr><h5><%=fiEmpty%></h5>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat6%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Foodgrains And Masalas</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='foodgrainsAndMasalas' hidden/>
+                    <input type="image" src="/images/foodgrainsAndMasalas.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat7%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Beverages</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='beverages' hidden/>
+                    <input type="image" src="/images/beverages.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom" style="display: <%=cat8%>">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding"><h3>Fruits And Vegetables</h3></div>
+                <form method="get" action="/categoryItem">
+                    <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                    <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                    <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                    <input type="text" name="itemCat" value='fruitsAndVegetables' hidden/>
+                    <input type="image" src="/images/fruitsAndVegetables.jpg" alt="Submit" style="width: 100%">
+                </form>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -102,11 +205,9 @@
     var spaceRef = storageRef.child('images/businessPartnersShops/'+bEmail+'.jpg');
     storageRef.child('images/businessPartnersShops/'+bEmail+'.jpg').getDownloadURL().then(function(url) {
         var test = url;
-        document.getElementById('lappyImg').src = test;
         document.getElementById('mobImg').src = test;
 
     }).catch(function(error) {
-        document.getElementById('lappyImg').src = '/images/bgauth3.png';
         document.getElementById('mobImg').src = '/images/im2.jpg';
     });
 

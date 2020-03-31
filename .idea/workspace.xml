@@ -2,16 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7e4c7a-c538-4880-9856-04e89f01e6ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/addImgBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/postItemImg.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/babyCare.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/beautyAndHygiene.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/beverages.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/cleaningAndHousehold.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/foodgrainsAndMasalas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/fruitsAndVegetables.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/kitchenGardenAndPets.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/itemCategory.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Template/homepageHeader.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/add-item-to-your-store.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/add-item-to-your-store.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/homepage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homepage.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/postItemImg.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/postItemImg.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +89,8 @@
       <workItem from="1585300257447" duration="6073000" />
       <workItem from="1585315124084" duration="7469000" />
       <workItem from="1585365181146" duration="33867000" />
-      <workItem from="1585542292478" duration="4136000" />
+      <workItem from="1585542292478" duration="5028000" />
+      <workItem from="1585581213442" duration="14126000" />
     </task>
     <servers />
   </component>
@@ -111,22 +117,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585045737470" />
-    <state width="1345" height="212" key="GridCell.Tab.0.bottom" timestamp="1585545802149">
+    <state width="1345" height="176" key="GridCell.Tab.0.bottom" timestamp="1585667335137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
-    <state width="1345" height="212" key="GridCell.Tab.0.center" timestamp="1585545802149">
+    <state width="1345" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585667335137" />
+    <state width="1345" height="176" key="GridCell.Tab.0.center" timestamp="1585667335137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
-    <state width="1345" height="212" key="GridCell.Tab.0.left" timestamp="1585545802149">
+    <state width="1345" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585667335137" />
+    <state width="1345" height="176" key="GridCell.Tab.0.left" timestamp="1585667335137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
-    <state width="1345" height="212" key="GridCell.Tab.0.right" timestamp="1585545802149">
+    <state width="1345" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585667335137" />
+    <state width="1345" height="176" key="GridCell.Tab.0.right" timestamp="1585667335137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585545802149" />
+    <state width="1345" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585667335137" />
     <state width="1308" height="159" key="GridCell.Tab.1.bottom" timestamp="1584898728985">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -175,10 +181,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1308" height="204" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1584800779597" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585542362323">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585583044480">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585542362323" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585583044480" />
     <state x="350" y="6" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585317447029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

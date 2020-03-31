@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<title>Bybrisk | Business Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<head>
+    <style>
+        #lappyImg {
+            display: block;
+        }
+        #mobImg{
+            display: none;
+        }
+        #mobCard{
+            width:300px;
+        }
+        @media only screen and (max-width: 600px) {
+            #lappyImg {
+                display: none;
+            }
+            #mobImg{
+                display: block;
+            }
+            #mobCard{
+                width:85%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<% include Template/homepageHeader.ejs %>
+
+<div class="w3-display-container" style="margin-bottom:50px">
+    <img id="lappyImg" src="/images/bgauth3.png" style="width:100%; height:300px;opacity:0.7;">
+    <img id="mobImg" src="test" style="width:100%; height:300px;opacity:0.7;">
+    <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange"
+         style="bottom:10%;opacity:0.7;width:70%">
+        <h2><b><%=bName%>, <%=bCityName%></b></h2>
+    </div>
+</div>
+
+<!------------------------------------add product component------------------------------------->
+<div class="row" id="recipieUpload">
+    <div class="col-12"><center>
+            <form method="POST" action="/itemUpload">
+                <input type="text" id="bEmail" name="emailbusiness" value='<%=email%>' hidden/>
+                <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                <h4>  <b>Add item to store</b>
+                    <input type="submit" value="+" class="w3-button w3-xlarge w3-circle w3-black"></h4>
+            </form></center></div>
+</div>
+    <div class="row" id="recipieUpload">
+    <div class="col-12"><center>
+            <form method="POST" action="/back-to-store">
+                <input type="text" name="emailbusiness" value='<%=email%>' hidden/>
+                <input type="text" name="businessName" value='<%=bName%>' hidden/>
+                <input type="text" name="businessCity" value='<%=bCityName%>' hidden/>
+                <input type="text" name="refId" id="sendRefId" hidden/>
+                <h4><input type="submit" value="<<" class="w3-button w3-xlarge" style="width: 20%;"><b> Back to Store</b></h4>
+            </form></center></div>
+    </div>
+</div>
+
+<div class="w3-row w3-container" style="margin:50px 0">
+
+    <h2><%=emptyErr%></h2>
+    <div class="row">
+    <%objItemData.forEach(function(item1){%>
+        <div class="col-md-4 col-sm-12">
+    <div class="container w3-margin-left w3-padding-16">
+        <div class="card w3-margin-left" id="mobCard">
+            <img class="card-img-top" src='https://storage.googleapis.com/bybrisk-31f19.appspot.com/images/itemPic/<%=item1.itemPicURL%>.jpg' alt="Card image" style="width:100%;height:200px">
+            <div class="card-body">
+                <h3 class="card-title"><%=item1.itemName%></h3>
+                <p class="card-text"><h4>Stock : <font size="4"><%=item1.itemQuantity%></font></h4>
+                    <h4>Brand : <font size="4"><%=item1.itemBrand%></font></h4>
+                    <h4>Price : ₹<font size="4"><%=item1.itemPrice%></font></h4></p>
+                <a href="#" class="btn btn-primary stretched-link">See Detail</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    <%});%>
+    </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase.js"></script>
+<script>
+    var bEmail = document.getElementById("bEmail").value;
+    var firebaseConfig = {
+        apiKey: "AIzaSyCUzbitqkIzeky0E2ZO0bhWbANgsJW_-Z0",
+        authDomain: "bybrisk-31f19.firebaseapp.com",
+        databaseURL: "https://bybrisk-31f19.firebaseio.com",
+        projectId: "bybrisk-31f19",
+        storageBucket: "bybrisk-31f19.appspot.com",
+        messagingSenderId: "440977790126",
+        appId: "1:440977790126:web:9a2c3694442c28dc6c093f",
+        measurementId: "G-5C0PXH170K"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var storageRef = firebase.storage().ref();
+    var spaceRef = storageRef.child('images/businessPartnersShops/'+bEmail+'.jpg');
+    storageRef.child('images/businessPartnersShops/'+bEmail+'.jpg').getDownloadURL().then(function(url) {
+        var test = url;
+        document.getElementById('mobImg').src = test;
+
+    }).catch(function(error) {
+        document.getElementById('mobImg').src = '/images/im2.jpg';
+    });
+
+</script>
+
+</body>
+</html>
